@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css?family=Overpass+Mono&display=swap');
+* {
+    font-family: 'Overpass Mono', monospace;
+}
+
+.button--app {
+    font-family: 'Overpass Mono', monospace;
+    background: #f26823;
+    color: #fff;
+    font-size: .9rem;
+    margin: 10px;
+    border: 0;
+    box-shadow: 3px 3px 0px #000;
+    transition: .5s ease;
+    &:hover {
+        cursor: pointer;
+        box-shadow: 5px 5px 0px #000;
+        transition:.5s ease;
+    }
+    
+}
+:disabled {
+    background:grey;
+    transition: .05s ease;
+}
+
+.barrel {
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    transform-origin: bottom; 
+}
+.bounce {
+    animation-name: bounce;
+    animation-timing-function: cubic-bezier(0.280, 0.840, 0.420, 1);
+}
+@keyframes bounce { 
+    0%   { transform: translateY(0) }
+    30%   { transform: translateY(-100px) }
+    50%   { transform: translateY(0) }
+    57%   { transform: translateY(-7px) }
+    10%   { transform: translateY(0) }
+}
+
+.box{
+    display:inline-block;
+
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    &--solid {
+         border: 2px solid #eee;
+    }
+    &--dashed {
+        border: 2px dashed #eee;
+    }
+}
+
+.has-padding-vertical{
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+.wobble {
+//      animation-name: wobble;
+//   animation-duration: 4s;
+//   animation-delay: 1s;
+//   animation-iteration-count: infinite;
+//   animation-timing-function: linear;
+//   animation-direction: alternate;
+        animation: 0.8s ease 0s 1 normal both running wobble;
+}
+@keyframes wobble {
+    0% {
+        -webkit-transform: translateX(0%);
+        transform: translateX(0%);
+        -webkit-transform-origin: 50% 50%;
+        transform-origin: 50% 50%;
+    }
+    
+    15% {
+        -webkit-transform: translateX(-30px) rotate(-6deg);
+        transform: translateX(-30px) rotate(-6deg);
+    }
+    30% {
+        -webkit-transform: translateX(15px) rotate(6deg);
+        transform: translateX(15px) rotate(6deg);
+    }
+    45% {
+        -webkit-transform: translateX(-15px) rotate(-3.6deg);
+        transform: translateX(-15px) rotate(-3.6deg);
+    }
+    60% {
+        -webkit-transform: translateX(9px) rotate(2.4deg);
+        transform: translateX(9px) rotate(2.4deg);
+    }
+    75% {
+        -webkit-transform: translateX(-6px) rotate(-1.2deg);
+        transform: translateX(-6px) rotate(-1.2deg);
+    }
+}
