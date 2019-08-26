@@ -1,37 +1,127 @@
 @import url('https://fonts.googleapis.com/css?family=Overpass+Mono&display=swap');
-* {
-    font-family: 'Overpass Mono', monospace;
+@import url('https://use.typekit.net/dre1nxg.css');
+
+//VARS
+$colors: (
+    primary: #F26823,
+    secondary: #035,
+    creamsicle: #FFBA7B,
+    light-grey: #F8F8F8,
+    light: #fefefe
+);
+$fonts:(
+    game: 'Overpass Mono',
+    party: 'gothic-open-shaded',
+    primary: 'proxima-nova'
+);
+
+/*colors*/
+@mixin bg-colors {
+  @each $name, $hex in $colors {
+    &--#{$name} {
+      background-color: $hex;
+    }
+  }
+}
+.background-color {
+    @include bg-colors;
 }
 
-.button--app {
-    font-family: 'Overpass Mono', monospace;
-    background: #f26823;
-    color: #fff;
+@mixin colors {
+  @each $name, $hex in $colors {
+    &--#{$name} {
+      color: $hex;
+    }
+  }
+}
+.color {
+    @include colors;
+}
+
+/*typography*/
+@mixin fonts {
+    @each $name, $family in $fonts {
+        &--#{$name} {
+            font-family: $family;
+        }
+    }
+}
+.font{
+   @include fonts;
+}
+h1, h2, h3 {
+    font-family: map-get($fonts, primary);
+    font-weight: 700;
+    font-style: normal;  
+    line-height:1.1;
+    margin: .4rem 0 .8rem;
+}
+.text{
+    &--large {
+        font-size: 1.4em;
+        font-weight: bold;
+    }
+    &--small {
+        font-size:.8rem;
+    }
+}
+/*buttons*/
+.app-button {
+    font-family: map-get($fonts, game);
     font-size: .9rem;
     margin: 10px;
     border: 0;
     box-shadow: 3px 3px 0px #000;
     transition: .5s ease;
+
     &:hover {
         cursor: pointer;
         box-shadow: 5px 5px 0px #000;
         transition:.5s ease;
     }
-    
 }
+.button{
+    &--light{
+        background-color: #fff;
+        color: #000;
+    }
+     &--primary{
+        background-color: map-get($colors, primary); 
+        color: #fff;
+    }
+    &--secondary{
+        background-color: map-get($colors, secondary); 
+        color: #fff;
+    }
+
+}
+
+/*padding*/
+.has-padding {
+    padding: 4rem;
+}
+.has-padding-vertical{
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+/*user states*/
 :disabled {
     background:grey;
     transition: .05s ease;
+    &:hover {
+        cursor: not-allowed;
+         box-shadow: 3px 3px 0px #000;
+    }
 }
 
-.barrel {
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
-    transform-origin: bottom; 
-}
+/*jizamations*/
 .bounce {
     animation-name: bounce;
     animation-timing-function: cubic-bezier(0.280, 0.840, 0.420, 1);
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    transform-origin: bottom; 
 }
 @keyframes bounce { 
     0%   { transform: translateY(0) }
@@ -41,34 +131,9 @@
     10%   { transform: translateY(0) }
 }
 
-.box{
-    display:inline-block;
-
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    &--solid {
-         border: 2px solid #eee;
-    }
-    &--dashed {
-        border: 2px dashed #eee;
-    }
-}
-
-.has-padding-vertical{
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-}
 
 .wobble {
-//      animation-name: wobble;
-//   animation-duration: 4s;
-//   animation-delay: 1s;
-//   animation-iteration-count: infinite;
-//   animation-timing-function: linear;
-//   animation-direction: alternate;
-        animation: 0.8s ease 0s 1 normal both running wobble;
+   animation: 0.8s ease 0s 1 normal both running wobble;
 }
 @keyframes wobble {
     0% {
@@ -98,4 +163,21 @@
         -webkit-transform: translateX(-6px) rotate(-1.2deg);
         transform: translateX(-6px) rotate(-1.2deg);
     }
+}
+
+.code {
+    background: #eee;
+    font-family: map-get($fonts, game);
+}
+.number--boxed {
+    border: 1px solid #eee;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: map-get($colors, primary); 
 }

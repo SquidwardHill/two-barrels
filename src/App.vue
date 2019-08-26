@@ -1,8 +1,9 @@
 <template>
   <div id="app">
     <div id="nav" class="has-text-centered">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/">Game</router-link> |
+      <router-link to="/why-i-made-this">But Why</router-link> |
+      <router-link to="/about">Me</router-link>
     </div>
     <router-view/>
   </div>
@@ -24,7 +25,7 @@
     font-weight: bold;
     color: #2c3e50;
     &.router-link-exact-active {
-      color: #42b983;
+      color: map-get($map: $colors, $key: primary )
     }
   }
 }

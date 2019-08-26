@@ -1,21 +1,31 @@
 <template>
-<div>
-    
-    <div class="barrel__image">
-        <img class="wobble" src="@/assets/images/barrel--pixel.png">
+    <div class="barrel">
+        <div class="barrel__image">
+            <img :class="wobble" src="@/assets/images/barrel--pixel.png">
+        </div>
+    <div class="barrel__content">
+            <div class="barrel__text color--creamsicle">Monkeys in the barrel: <span class="barrel__box">{{ count }}</span></div>
+            <button class="app-button button--light" :disabled=" roll == 0 " @click="$emit('update-count'); toggleWobble();">Add to Barrel</button>
     </div>
-    <div class="barrel__text"><img class="barrel__monkey" src="@/assets/images/barrel--monkey.png">'s in the barrel: <span class="barrel__box">{{ count }}</span></div>
-    <button class="button--app" :disabled=" roll == 0 " @click="$emit('update-count')">Add to Barrel</button>
-    <!-- <div class="box">
-           <strong>{{ count }}</strong>
-    </div>  -->
-
-</div>
+    </div>
 </template>
 
 <script>
 export default{
-    props: ['count', 'roll']
+    data: function(){
+        return{
+            isWobble: false
+        }
+    },
+    props: ['count', 'roll', 'wobble'],
+    methods: {
+        resetWobble(){
+            this.isWobble = false;
+        },
+        toggleWobble(){
+            this.isWobble = true;
+        }
+    }
 }
 </script>
 
@@ -24,10 +34,14 @@ export default{
 img {
     max-width:250px;
 }
-.barrel__text {
+/* .barrel__text {
     display: flex;
     margin: auto;
     justify-content: center;
+    align-items: center;
+} */
+.barrel {
+    display:flex;
     align-items: center;
 }
 .barrel__monkey {
@@ -38,6 +52,8 @@ img {
     height:36px;
     line-height: 36px;
     border: 2px solid #eee;
+    padding: 2px 8px;
+    color: #363636;
 }
 
 
