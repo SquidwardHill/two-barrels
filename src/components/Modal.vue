@@ -11,6 +11,7 @@
           </button>
       <section class="app-modal--body has-text-centered">
           <p>{{ outcome }}</p>
+          <div> <img class="hop" src="@/assets/images/barrel--monkey.png"></div>
 
          <button
               type="button"

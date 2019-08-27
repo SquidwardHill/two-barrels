@@ -26,5 +26,10 @@ export default new Router({
       name: 'Why I Made This',
       component: () => import(/* webpackChunkName: "about" */ './views/Why.vue')
     },
+    {
+      path: '/pitch',
+      name: 'Pitch',
+      component: () => import(/* webpackChunkName: "about" */ './views/Pitch.vue')
+    },
   ]
 })

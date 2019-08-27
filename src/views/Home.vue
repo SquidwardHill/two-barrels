@@ -15,15 +15,17 @@
                 <div class="column background-color--primary is-two-thirds font--game">
                    <div class="has-padding">
                         <div class="roll is-flex-desktop color--light">
+                            <div class="roll--count">
+                                    <span>You have <strong>{{  turnsRemaining }}</strong> rolls remaining.</span>
+                            </div>
+
                            <div class="roll--dice is-flex">
-                                <p v-if=" roll == 0 ">Roll the die!</p>
-                                <p v-else>You Rolled: <span class="text--large"> {{ roll }} </span> </p>
+                                <span v-if=" roll == 0 ">Roll the die!</span>
+                                <span v-else>You Rolled: <span class="text--large"> {{ roll }} </span> </span>
                                 <button class="app-button button--white " @click="rollDie" :disabled="roll > 0">Roll</button>
                            </div>
 
-                            <div class="roll--count">
-                                    <p>You have <strong>{{  turnsRemaining }}</strong> rolls remaining.</p>
-                            </div>
+                            
                         </div>
                     <Barrel 
                     :count="barrelOne" 
@@ -157,7 +159,7 @@ import Modal from '@/components/Modal.vue';
 
  @media(min-width:980px){
     .roll--count {
-        margin-left: 5rem;
+        margin-right: 5rem;
     }
 }
 </style>

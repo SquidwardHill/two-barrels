@@ -56,6 +56,9 @@ h1, h2, h3 {
     line-height:1.1;
     margin: .4rem 0 .8rem;
 }
+body p {
+    margin-bottom: 1.5rem;
+}
 .text{
     &--large {
         font-size: 1.4em;
@@ -99,10 +102,10 @@ h1, h2, h3 {
 /*padding*/
 .has-padding {
     padding: 4rem;
-}
-.has-padding-vertical{
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+    &--vertical{
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+    }
 }
 
 /*user states*/
@@ -180,4 +183,19 @@ h1, h2, h3 {
     align-items: center;
     font-weight: bold;
     color: map-get($colors, primary); 
+}
+
+.emphasize--primary {
+  position:relative;
+   margin-bottom:1rem;
+       padding-bottom: 2rem;
+  &:before {
+    content: "";
+    background: map-get($map: $colors, $key: primary);
+    bottom: 0;
+    position: absolute;
+    width: 100px;
+    height: 4px;
+   
+  }
 }

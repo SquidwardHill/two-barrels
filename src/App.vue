@@ -2,15 +2,23 @@
   <div id="app">
     <div id="nav" class="has-text-centered">
       <router-link to="/">Game</router-link> |
-      <router-link to="/why-i-made-this">But Why</router-link> |
-      <router-link to="/about">Me</router-link>
+      <router-link to="/why-i-made-this">Why + Process</router-link> |
+      <router-link to="/pitch">Pitch</router-link> 
+      <!-- |
+      <router-link to="/about">About</router-link> -->
     </div>
     <router-view/>
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
-
+import Footer from '@/components/Footer.vue';
+    export default {
+         components: {
+           Footer
+        }
+    }
 </script>
 <style lang="scss">
 #app {
